@@ -11,6 +11,23 @@ import serverless from 'serverless-http';
 process.env.NETLIFY = 'true';
 process.env.NODE_ENV = 'production';
 
-const { app } = await import('../../server.js');
+let cachedHandler: ReturnType<typeof serverless> | null = null;
+let initialization: Promise<ReturnType<typeof serverless>> | null = null;
 
-export const handler = serverless(app);
+async function getHandler() {
+  if (cachedHandler) return cachedHandler;
+
+  if (!initialization) {
+    initialization = import('../../server.js').then(({ app }) => {
+      cachedHandler = serverless(app);
+      return cachedHandler;
+    });
+  }
+
+  return initialization;
+}
+
+export const handler = async (event: any, context: any) => {
+  const appHandler = await getHandler();
+  return appHandler(event, context);
+};
