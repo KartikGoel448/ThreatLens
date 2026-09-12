@@ -1,0 +1,6 @@
+{
+  "name": "ThreatLens",
+  "description": "AI-powered email threat analysis, header forensics, authentication verification, relay tracing, and threat investigation graph.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

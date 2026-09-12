@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0e17;
+  --bg-2: #0d1421;
+  --surface: #121b2b;
+  --surface-2: #182339;
+  --surface-3: #1e2c45;
+  --border: #202e45;
+  --border-strong: #31445f;
+  --text: #f2f6fc;
+  --text-2: #d8e2f0;
+  --muted: #aab9d0;
+  --green: #38d98c;
+  --green-dim: #122b20;
+  --green-border: #267a52;
+  --amber: #ffb92e;
+  --amber-dim: #2c2110;
+  --amber-border: #8a641f;
+  --red: #ff5d63;
+  --red-dim: #301419;
+  --red-border: #8f2f37;
+  --cyan: #3fd0f0;
+  --cyan-dim: #0e2733;
+  --cyan-border: #1f5a72;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 12px 34px rgba(0, 0, 0, 0.38);
+  --grad-cyan: linear-gradient(180deg, #2ec9ec, #17a7d8);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(1200px 520px at 72% -12%, rgba(25, 120, 160, 0.12), transparent 60%),
+                    radial-gradient(900px 420px at 8% -10%, rgba(110, 60, 175, 0.08), transparent 60%);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(63, 208, 240, 0.35);
+  color: #fff;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111827 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  section, div, dl {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border-color: #d1d5db !important;
+    box-shadow: none !important;
+  }
+  span, dt, dd, p, h1, h2, h3 {
+    color: #111827 !important;
+  }
+  pre {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+  }
+}
+
